@@ -21,3 +21,20 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+# Copy project files to artifact staging directory
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: |
+      src/**
+      public/**
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy project files'
+
+# Publish pipeline artifact
+- task: PublishPipelineArtifact@1
+  inputs:
+    artifactName: 'nodejs-app'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Publish pipeline artifact'
