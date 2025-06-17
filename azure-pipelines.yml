@@ -35,6 +35,6 @@ steps:
 # Publish pipeline artifact
 - task: PublishPipelineArtifact@1
   inputs:
-    artifactName: 'nodejs-app'
     targetPath: '$(Build.ArtifactStagingDirectory)'
+    publishLocation: 'pipeline'
   displayName: 'Publish pipeline artifact'
