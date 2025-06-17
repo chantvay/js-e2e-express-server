@@ -37,4 +37,5 @@ steps:
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
+    artifactName: 'drop'
   displayName: 'Publish pipeline artifact'
